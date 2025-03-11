@@ -1,15 +1,21 @@
-import React from "react";
+import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
-import { Navbar, Nav } from "react-bootstrap";
+import { Navbar, Nav, NavDropdown } from "react-bootstrap";
 import { FiGithub } from "react-icons/fi";
 import { RiTailwindCssFill } from "react-icons/ri";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 const Header = () => {
+  const [selectedVersion, setSelectedVersion] = useState("v4.0");
+
+  const handleSelect = (eventKey) => {
+    setSelectedVersion(eventKey);
+  };
+
   return (
     <Navbar
       style={{
-        backgroundColor: "#f8f9fa",
+        backgroundColor: "white",
         boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
         position: "sticky",
         top: 0,
@@ -27,7 +33,7 @@ const Header = () => {
           padding: "0 1rem",
         }}
       >
-        {/* Brand Section */}
+        {/* Logo and Brand */}
         <Navbar.Brand
           as={NavLink}
           to="/"
@@ -44,13 +50,27 @@ const Header = () => {
               color: "black",
               fontWeight: "bold",
               fontSize: "1.5rem",
-              lineHeight: "1.2",
-              marginTop: "2px", // Adjust only this text
             }}
           >
             tailwindcss
           </span>
         </Navbar.Brand>
+
+        {/* Version Dropdown */}
+        <NavDropdown
+          title={selectedVersion}
+          onSelect={handleSelect}
+          style={{
+            fontSize: "1rem",
+            fontWeight: "500",
+            color: "black",
+            marginLeft: "1rem",
+          }}
+        >
+          <NavDropdown.Item eventKey="v4.1">v4.1</NavDropdown.Item>
+          <NavDropdown.Item eventKey="v5.2">v5.2</NavDropdown.Item>
+          <NavDropdown.Item eventKey="v3.0">v3.0</NavDropdown.Item>
+        </NavDropdown>
 
         {/* Mobile Toggle */}
         <Navbar.Toggle
@@ -58,7 +78,7 @@ const Header = () => {
           style={{ border: "none" }}
         />
 
-        {/* Navigation Items */}
+        {/* Navigation Links */}
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav
             style={{
