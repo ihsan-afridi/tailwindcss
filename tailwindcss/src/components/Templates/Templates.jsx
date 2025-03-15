@@ -1,5 +1,4 @@
 import React from "react";
-import { Card, Row, Col } from "react-bootstrap";
 
 const Templates = () => {
   const templates = [
@@ -10,45 +9,84 @@ const Templates = () => {
   ];
 
   return (
-    <div className="container mt-5">
+    <div
+      style={{
+        fontFamily: "Arial, sans-serif",
+        padding: "20px",
+        backgroundColor: "#f9f9f9",
+        minHeight: "100vh",
+      }}
+    >
       {/* Header Section */}
       <div
-        className="d-flex justify-content-between align-items-center p-3 mb-4"
         style={{
-          backgroundColor: "skyblue",
+          backgroundColor: "#00aaff",
+          padding: "20px",
           borderRadius: "8px",
+          color: "#fff",
           position: "relative",
+          textAlign: "center",
         }}
       >
-        <h1 className="mb-0">Templates</h1>
-        {/* "TEMPLATES" in the top-left corner */}
+        <h1 style={{ margin: "0", fontSize: "24px" }}>Templates</h1>
         <div
           style={{
             position: "absolute",
             top: "10px",
             left: "10px",
             fontWeight: "bold",
-            color: "#fff",
             fontSize: "18px",
           }}
         >
-          
+          TEMPLATES
         </div>
       </div>
 
       {/* Cards Section */}
-      <Row xs={1} md={2} lg={3} className="g-4">
+      <div
+        style={{
+          display: "flex",
+          flexWrap: "wrap",
+          gap: "20px",
+          justifyContent: "center",
+          marginTop: "20px",
+        }}
+      >
         {templates.map((template, index) => (
-          <Col key={index}>
-            <Card className="shadow-sm">
-              <Card.Body>
-                <Card.Title>{template.title}</Card.Title>
-                <Card.Text>{template.description}</Card.Text>
-              </Card.Body>
-            </Card>
-          </Col>
+          <div
+            key={index}
+            style={{
+              backgroundColor: "#fff",
+              boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
+              borderRadius: "8px",
+              padding: "15px",
+              maxWidth: "300px",
+              textAlign: "center",
+              flex: "1 0 calc(33.33% - 20px)",
+              minWidth: "250px",
+            }}
+          >
+            <h2
+              style={{
+                fontSize: "18px",
+                marginBottom: "10px",
+                color: "#333",
+              }}
+            >
+              {template.title}
+            </h2>
+            <p
+              style={{
+                fontSize: "14px",
+                color: "#666",
+                lineHeight: "1.5",
+              }}
+            >
+              {template.description}
+            </p>
+          </div>
         ))}
-      </Row>
+      </div>
     </div>
   );
 };

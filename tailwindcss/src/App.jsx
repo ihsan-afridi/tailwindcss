@@ -9,6 +9,7 @@ import Showcase from './components/Showcase/Showcase';
 import TailwindSetupGuide from './components/Docs/TailwindSetupGuide';
 import Templates from './components/Templates/Templates'
 import Documentation from './components/Documentation/Documentation';
+import Playground from './components/Playground/Playground';
 
 
 
@@ -39,6 +40,7 @@ const App = () => {
               {/* Sidebar */}
               <Route path='/Templates' element={<Templates/>}/>
               <Route path='/Documentation' element={<Documentation/>}/>
+              <Route path='/Playground' element={<Playground/>}/>
             </Routes>
           </main>
         </div>
